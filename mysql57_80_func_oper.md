@@ -24,6 +24,7 @@
 | `~` | 8.0.0 | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
 | `!` | 8.0.17 (D) | 非推奨に https://dev.mysql.com/doc/refman/8.0/ja/logical-operators.html#operator_not |
 | `BINARY` | 8.0.27 (NR,D) | 非推奨に（`CAST(... AS BINARY)`に置換） https://dev.mysql.com/doc/refman/8.0/en/cast-functions.html#operator_binary |
+| `NOT REGEXP` | 8.0.4 | 正規表現ライブラリが ICU に変わった影響を受ける可能性がある https://dev.mysql.com/doc/refman/8.0/ja/regexp.html#regexp-compatibility |
 
 ## ビルトイン関数
 
@@ -64,8 +65,17 @@
 | `IsClosed()`, `IsEmpty()`, `IsSimple()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
 | `JSON_MERGE()` | 5.7.8 8.0.3 (D) | 5.7.8 で導入→非推奨に https://dev.mysql.com/doc/refman/8.0/ja/json-modification-functions.html#function_json-merge `JSON_MERGE_PRESERVE()`に置き換え |
 | `LEAST()` | 8.0.4 | 引数のキャスト（コンテキストの推測）方法を変更 https://dev.mysql.com/doc/refman/8.0/ja/comparison-operators.html **注記** |
-| `LineFromText()`, `LineStringFromText()`, `LineFromWKB()`, `LineStringFromWKB()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| `LineFromText()`, `LineStringFromText()`, `LineFromWKB()`, `MultiLineStringFromWKB()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
 | `LineString()` | 5.7.6 8.0.0 ほか | GIS 関数刷新の影響を受ける可能性がある **[(\*2)](#2)** |
+| `MASTER_POS_WAIT()` | 8.0.26 (D) | 非推奨→`SOURCE_POS_WAIT`へ置き換え（Aurora MySQL v3 バックポート済み） |
+| `MATCH()` | 8.0.28 (NR) | ロールアップカラム使用不可に https://dev.mysql.com/doc/refman/8.0/en/fulltext-search.html#function_match |
+| `MBREqual()` | 5.7.6 (D) 8.0.0 (R) | `MBREquals()` に置き換え GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| その他`MBR`で始まる関数 | 5.7.6 8.0.0 ほか | GIS 関数刷新の影響を受ける可能性がある **[(\*2)](#2)** |
+| `MLineFromText()`, `MultiLineStringFromText()`, `MLineFromWKB()`, `LineStringFromWKB()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| `MPointFromText()`, `MultiPointFromText()`, `MPointFromWKB()`, `MultiPointFromWKB()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| `MPolyFromText()`, `MultiPolygonFromText()`, `MPolyFromWKB()`, `MultiPolygonFromWKB()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| `MultiLineString()`, `MultiPoint()`, `MultiPolygon()` | 5.7.6 8.0.0 ほか | GIS 関数刷新の影響を受ける可能性がある **[(\*2)](#2)** |
+| `NumGeometries()`, `NumInteriorRings()`, `NumPoints()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
 | `SUBTIME()` | 8.0.28 (NR) | 戻り値の型を決める方法を変更 https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_addtime |
 | `UpdateXML()` |  | XML 関数は開発中の機能なので随時修正が入る https://dev.mysql.com/doc/refman/8.0/ja/xml-functions.html |
 
