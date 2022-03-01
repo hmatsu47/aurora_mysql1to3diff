@@ -21,8 +21,8 @@
 | `BIT_AND()` | 8.0.? | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
 | `BIT_OR()` | 8.0.? | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
 | `BIT_XOR()` | 8.0.? | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
-| 'GREATEST()` | 8.0.4 | 引数のキャスト（コンテキストの推測）方法を変更 https://dev.mysql.com/doc/refman/8.0/ja/comparison-operators.html **注記** |
-| 'LEAST()` | 8.0.4 | 引数のキャスト（コンテキストの推測）方法を変更 https://dev.mysql.com/doc/refman/8.0/ja/comparison-operators.html **注記** |
+| `GREATEST()` | 8.0.4 | 引数のキャスト（コンテキストの推測）方法を変更 https://dev.mysql.com/doc/refman/8.0/ja/comparison-operators.html **注記** |
+| `LEAST()` | 8.0.4 | 引数のキャスト（コンテキストの推測）方法を変更 https://dev.mysql.com/doc/refman/8.0/ja/comparison-operators.html **注記** |
 
 ---
 
