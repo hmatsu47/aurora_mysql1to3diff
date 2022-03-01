@@ -62,7 +62,7 @@
 | `InteriorRingN()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
 | `Intersects()` | 5.7.6 (D) 8.0.0 (R) | `MBR` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
 | `IsClosed()`, `IsEmpty()`, `IsSimple()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
-| `JSON_MERGE()` | 8.0.3 (5.7.22) (D) | 5.7.8 で導入→非推奨に https://dev.mysql.com/doc/refman/8.0/ja/json-modification-functions.html#function_json-merge `JSON_MERGE_PRESERVE()`に置き換え |
+| `JSON_MERGE()` | 5.7.8 8.0.3 (D) | 5.7.8 で導入→非推奨に https://dev.mysql.com/doc/refman/8.0/ja/json-modification-functions.html#function_json-merge `JSON_MERGE_PRESERVE()`に置き換え |
 | `LEAST()` | 8.0.4 | 引数のキャスト（コンテキストの推測）方法を変更 https://dev.mysql.com/doc/refman/8.0/ja/comparison-operators.html **注記** |
 | `LineFromText()`, `LineStringFromText()`, `LineFromWKB()`, `LineStringFromWKB()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
 | `LineString()` | 5.7.6 8.0.0 ほか | GIS 関数刷新の影響を受ける可能性がある **[(\*2)](#2)** |
