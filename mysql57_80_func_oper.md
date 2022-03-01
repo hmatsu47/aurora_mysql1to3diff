@@ -22,6 +22,7 @@
 | `\|` | 8.0.0 | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
 | `\|\|` | 8.0.17 (D) | 非推奨に https://dev.mysql.com/doc/refman/8.0/ja/logical-operators.html#operator_or **注記**も参照（`OR`とは別の使い方←非推奨にはならない） |
 | `~` | 8.0.0 | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
+| `!` | 8.0.17 (D) | 非推奨に https://dev.mysql.com/doc/refman/8.0/ja/logical-operators.html#operator_not |
 | `BINARY` | 8.0.27 (NR,D) | 非推奨に（`CAST(... AS BINARY)`に置換） https://dev.mysql.com/doc/refman/8.0/en/cast-functions.html#operator_binary |
 
 ## ビルトイン関数
@@ -55,8 +56,16 @@
 | `FROM_UNIXTIME()` | 8.0.28 (NR) | 64 ビット環境では最大値が `32536771199.999999`（`'3001-01-18 23:59:59.999999' UTC`） に https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_convert-tz |
 | `GeomCollFromText()`, `GeometryCollectionFromText()`, `GeomCollFromWKB()`, `GeometryCollectionFromWKB()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
 | `GeometryCollection()` | 5.7.6 8.0.0 ほか | GIS 関数刷新の影響を受ける可能性がある **[(\*2)](#2)** |
+| `GeometryN()`, `GeometryType()`, `GeomFromText()`, `GeometryFromText()`, `GeomFromWKB()`, `GeometryFromWKB()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| `GLength()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
 | `GREATEST()` | 8.0.4 | 引数のキャスト（コンテキストの推測）方法を変更 https://dev.mysql.com/doc/refman/8.0/ja/comparison-operators.html **注記** |
+| `InteriorRingN()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| `Intersects()` | 5.7.6 (D) 8.0.0 (R) | `MBR` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| `IsClosed()`, `IsEmpty()`, `IsSimple()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| `JSON_MERGE()` | 8.0.3 (5.7.22) (D) | 5.7.8 で導入→非推奨に https://dev.mysql.com/doc/refman/8.0/ja/json-modification-functions.html#function_json-merge `JSON_MERGE_PRESERVE()`に置き換え |
 | `LEAST()` | 8.0.4 | 引数のキャスト（コンテキストの推測）方法を変更 https://dev.mysql.com/doc/refman/8.0/ja/comparison-operators.html **注記** |
+| `LineFromText()`, `LineStringFromText()`, `LineFromWKB()`, `LineStringFromWKB()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| `LineString()` | 5.7.6 8.0.0 ほか | GIS 関数刷新の影響を受ける可能性がある **[(\*2)](#2)** |
 | `SUBTIME()` | 8.0.28 (NR) | 戻り値の型を決める方法を変更 https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_addtime |
 | `UpdateXML()` |  | XML 関数は開発中の機能なので随時修正が入る https://dev.mysql.com/doc/refman/8.0/ja/xml-functions.html |
 
