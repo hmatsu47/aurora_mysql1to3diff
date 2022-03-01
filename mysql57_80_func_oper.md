@@ -3,15 +3,23 @@
 - **[オペレータ](#オペレータ)**
 - **[ビルトイン関数](#ビルトイン関数)**
 
+---
+
+**バージョン表記の後ろの記号について：**
+- (D) : 非推奨（Deprecated）
+- (NR) : Aurora MySQL v3 の将来のリリース（MySQL 8.0.24 以降）で変更される可能性あり
+
 ## オペレータ
 
 | オペレータ | 変更が加わったバージョン | 変更の概要・参考リンク |
 | ---- | ---- | ---- |
 | `&` | 8.0.? | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
+| `&&` | 8.0.17 (D) | 非推奨に https://dev.mysql.com/doc/refman/8.0/ja/logical-operators.html#operator_and |
 | `>>` | 8.0.? | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
 | `<<` | 8.0.? | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
 | `^` | 8.0.? | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
 | `\|` | 8.0.? | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
+| `\|\|` | 8.0.17 (D) | 非推奨に https://dev.mysql.com/doc/refman/8.0/ja/logical-operators.html#operator_or |
 | `~` | 8.0.? | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
 
 ## ビルトイン関数
@@ -25,8 +33,6 @@
 | `GREATEST()` | 8.0.4 | 引数のキャスト（コンテキストの推測）方法を変更 https://dev.mysql.com/doc/refman/8.0/ja/comparison-operators.html **注記** |
 | `LEAST()` | 8.0.4 | 引数のキャスト（コンテキストの推測）方法を変更 https://dev.mysql.com/doc/refman/8.0/ja/comparison-operators.html **注記** |
 | `SUBTIME()` | 8.0.28 (NR) | 戻り値の型を決める方法を変更 https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_addtime |
-
-- (NR) : Aurora MySQL v3 の将来のリリース（MySQL 8.0.24 以降）で変更される可能性あり
 
 ---
 
