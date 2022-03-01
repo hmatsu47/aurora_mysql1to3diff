@@ -14,14 +14,15 @@
 
 | オペレータ | 変更が加わったバージョン | 変更の概要・参考リンク |
 | ---- | ---- | ---- |
-| `&` | 8.0.? | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
+| `&` | 8.0.0 | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
 | `&&` | 8.0.17 (D) | 非推奨に https://dev.mysql.com/doc/refman/8.0/ja/logical-operators.html#operator_and |
-| `>>` | 8.0.? | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
-| `<<` | 8.0.? | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
-| `^` | 8.0.? | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
-| `\|` | 8.0.? | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
+| `>>` | 8.0.0 | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
+| `<<` | 8.0.0 | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
+| `^` | 8.0.0 | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
+| `\|` | 8.0.0 | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
 | `\|\|` | 8.0.17 (D) | 非推奨に https://dev.mysql.com/doc/refman/8.0/ja/logical-operators.html#operator_or **注記**も参照（`OR`とは別の使い方←非推奨にはならない） |
-| `~` | 8.0.? | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
+| `~` | 8.0.0 | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
+| `BINARY` | 8.0.27 (NR,D) | 非推奨に（`CAST(... AS BINARY)`に置換） https://dev.mysql.com/doc/refman/8.0/en/cast-functions.html#operator_binary |
 
 ## ビルトイン関数
 
@@ -29,14 +30,31 @@
 | ---- | ---- | ---- |
 | `ADDTIME()` | 8.0.28 (NR) | 戻り値の型を決める方法を変更 https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_addtime |
 | `Area()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
-| `AsBinary()`, `AsWKB()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
-| `AsText()`, `AsWKT()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
-| `BIT_AND()` | 8.0.? | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
-| `BIT_OR()` | 8.0.? | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
-| `BIT_XOR()` | 8.0.? | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
+| `AsBinary()`, `AsWKB()`, `AsText()`, `AsWKT()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| `BIT_AND()` | 8.0.0 | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
+| `BIT_OR()` | 8.0.0 | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
+| `BIT_XOR()` | 8.0.0 | 64 ビットを超えるビット演算に対応 **[(\*1)](#1)** |
+| `Buffer()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| `CAST()` | 5.7.6 8.0.0 ほか | Spatial な型への変換について GIS 関数刷新の影響を受ける可能性がある **[(\*2)](#2)** |
+| `Centroid()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| `Contains()` | 5.7.6 (D) 8.0.0 (R) | `MBR` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| `CONVERT()` | 5.7.6 8.0.0 ほか | Spatial な型への変換について GIS 関数刷新の影響を受ける可能性がある **[(\*2)](#2)** |
+| `CONVERT_TZ()` | 8.0.28 (NR) | 64 ビット環境では最大値が `'3001-01-18 23:59:59.999999' UTC` に https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_convert-tz |
+| `Crosses()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| `DATE_ADD()`, `DATE_SUB()` | 8.0.22 to 8.0.28 (NR) | プリペアドステートメントを使う場合、引数での型の指定に関わらず`DATETIME`型の値を返す https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_date-add https://bugs.mysql.com/bug.php?id=103781 ※8.0.28 で元の動作に戻る |
+| `DECODE()`, `ENCODE()` | 5.7.2 (D) 8.0.3 (R) | 非推奨→削除 `AES_ENCRYPT()`, `AES_DECRYPT()`への切り替え（注：非互換）を推奨 https://dev.mysql.com/doc/refman/5.7/en/encryption-functions.html#function_decode |
+| `DES_DECRYPT()`, `DES_ENCRYPT()` | 5.7.6 (D) 8.0.3 (R) | 非推奨→削除 `AES_ENCRYPT()`, `AES_DECRYPT()`への切り替え（注：非互換）を推奨 https://dev.mysql.com/doc/refman/5.7/en/encryption-functions.html#function_des-decrypt |
+| `Dimension()`, `Distance()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| `Disjoint()` | 5.7.6 (D) 8.0.0 (R) | `MBR` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| `ENCRYPT()` | 5.7.6 (D) 8.0.3 (R) | 非推奨→削除 `SHA2()`でのハッシュ化への切り替え（注：非互換）を推奨 https://dev.mysql.com/doc/refman/5.7/en/encryption-functions.html#function_encrypt |
+| `EndPoint()`, `Envelope` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| `Equals()` | 5.7.6 (D) 8.0.0 (R) | `MBR` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| `ExteriorRing()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| `ExtractValue()` |  | XML 関数は開発中の機能なので随時修正が入る https://dev.mysql.com/doc/refman/8.0/ja/xml-functions.html |
 | `GREATEST()` | 8.0.4 | 引数のキャスト（コンテキストの推測）方法を変更 https://dev.mysql.com/doc/refman/8.0/ja/comparison-operators.html **注記** |
 | `LEAST()` | 8.0.4 | 引数のキャスト（コンテキストの推測）方法を変更 https://dev.mysql.com/doc/refman/8.0/ja/comparison-operators.html **注記** |
 | `SUBTIME()` | 8.0.28 (NR) | 戻り値の型を決める方法を変更 https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_addtime |
+| `UpdateXML()` |  | XML 関数は開発中の機能なので随時修正が入る https://dev.mysql.com/doc/refman/8.0/ja/xml-functions.html |
 
 ---
 
