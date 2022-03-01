@@ -51,6 +51,10 @@
 | `Equals()` | 5.7.6 (D) 8.0.0 (R) | `MBR` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
 | `ExteriorRing()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
 | `ExtractValue()` |  | XML 関数は開発中の機能なので随時修正が入る https://dev.mysql.com/doc/refman/8.0/ja/xml-functions.html |
+| `FOUND_ROWS()` | 8.0.17 (D) | 非推奨に https://dev.mysql.com/doc/refman/8.0/ja/information-functions.html#function_found-rows |
+| `FROM_UNIXTIME()` | 8.0.28 (NR) | 64 ビット環境では最大値が `32536771199.999999`（`'3001-01-18 23:59:59.999999' UTC`） に https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_convert-tz |
+| `GeomCollFromText()`, `GeometryCollectionFromText()`, `GeomCollFromWKB()`, `GeometryCollectionFromWKB()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| `GeometryCollection()` | 5.7.6 8.0.0 ほか | GIS 関数刷新の影響を受ける可能性がある **[(\*2)](#2)** |
 | `GREATEST()` | 8.0.4 | 引数のキャスト（コンテキストの推測）方法を変更 https://dev.mysql.com/doc/refman/8.0/ja/comparison-operators.html **注記** |
 | `LEAST()` | 8.0.4 | 引数のキャスト（コンテキストの推測）方法を変更 https://dev.mysql.com/doc/refman/8.0/ja/comparison-operators.html **注記** |
 | `SUBTIME()` | 8.0.28 (NR) | 戻り値の型を決める方法を変更 https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_addtime |
