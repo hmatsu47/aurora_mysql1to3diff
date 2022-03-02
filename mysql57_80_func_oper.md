@@ -82,10 +82,12 @@
 | `Point()`, `Polygon()` | 5.7.6 8.0.0 ほか | GIS 関数刷新の影響を受ける可能性がある **[(\*2)](#2)** |
 | `PointFromText()`, `PointFromWKB()`, `PointN()`, `PolyFromText()`, `PolygonFromText()`, `PolyFromWKB()`, `Polygon()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
 | `PROCEDURE ANALYSE()` | 5.7.18 (D) 8.0.0 (R) | 8.0.0 で削除 https://dev.mysql.com/doc/refman/5.7/en/procedure-analyse.html |
+| `ROUND()`, `TRUNCATE()` | 8.0.21 | 戻り値の型を決める方法を変更 https://dev.mysql.com/doc/refman/8.0/ja/mathematical-functions.html#function_round |
 | `SRID()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
 | `ST_`で始まる関数 | 5.7.6 8.0.0 ほか | GIS 関数刷新の影響を受ける可能性がある **[(\*2)](#2)** |
 | `StartPoint()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
 | `SUBTIME()` | 8.0.28 (NR) | 戻り値の型を決める方法を変更 https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_addtime |
+| `Touches()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
 | `UpdateXML()` |  | XML 関数は開発中の機能なので随時修正が入る https://dev.mysql.com/doc/refman/8.0/ja/xml-functions.html |
 
 ---
