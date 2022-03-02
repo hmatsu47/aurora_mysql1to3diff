@@ -76,6 +76,12 @@
 | `MPolyFromText()`, `MultiPolygonFromText()`, `MPolyFromWKB()`, `MultiPolygonFromWKB()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
 | `MultiLineString()`, `MultiPoint()`, `MultiPolygon()` | 5.7.6 8.0.0 ほか | GIS 関数刷新の影響を受ける可能性がある **[(\*2)](#2)** |
 | `NumGeometries()`, `NumInteriorRings()`, `NumPoints()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| `OLD_PASSWORD()` | 5.7.5 (R) | 5.6 時点で非推奨→廃止 |
+| `Overlaps()` | 5.7.6 (D) 8.0.0 (R) | `MBR` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| `PASSWORD()` | 5.7.6 (D) 8.0.11 (R) | `CREATE USER`や`GRANT`（こちらは暗黙のユーザ作成機能自体も廃止）で`IDENTIFIED BY PASSWORD()`が不可に https://dev.mysql.com/doc/refman/5.7/en/encryption-functions.html#function_password |
+| `Point()`, `Polygon()` | 5.7.6 8.0.0 ほか | GIS 関数刷新の影響を受ける可能性がある **[(\*2)](#2)** |
+| `PointFromText()`, `PointFromWKB()`, `PointN()`, `PolyFromText()`, `PolygonFromText()`, `PolyFromWKB()`, `Polygon()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| `PROCEDURE ANALYSE()` | 5.7.18 (D) 8.0.0 (R) | 8.0.0 で削除 https://dev.mysql.com/doc/refman/5.7/en/procedure-analyse.html |
 | `SUBTIME()` | 8.0.28 (NR) | 戻り値の型を決める方法を変更 https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_addtime |
 | `UpdateXML()` |  | XML 関数は開発中の機能なので随時修正が入る https://dev.mysql.com/doc/refman/8.0/ja/xml-functions.html |
 
