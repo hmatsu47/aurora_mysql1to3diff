@@ -54,7 +54,7 @@
 | `ExteriorRing()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
 | `ExtractValue()` |  | XML 関数は開発中の機能なので随時修正が入る https://dev.mysql.com/doc/refman/8.0/ja/xml-functions.html |
 | `FOUND_ROWS()` | 8.0.17 (D) | 非推奨に https://dev.mysql.com/doc/refman/8.0/ja/information-functions.html#function_found-rows |
-| `FROM_UNIXTIME()` | 8.0.28 (NR) | 64 ビット環境では最大値が `32536771199.999999`（`'3001-01-18 23:59:59.999999' UTC`） に https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_convert-tz |
+| `FROM_UNIXTIME()` | 8.0.28 (NR) | 64 ビット環境では最大値が `32536771199.999999`（`'3001-01-18 23:59:59.999999' UTC`） に https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_from-unixtime |
 | `GeomCollFromText()`, `GeometryCollectionFromText()`, `GeomCollFromWKB()`, `GeometryCollectionFromWKB()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
 | `GeometryCollection()` | 5.7.6 8.0.0 ほか | GIS 関数刷新の影響を受ける可能性がある **[(\*2)](#2)** |
 | `GeometryN()`, `GeometryType()`, `GeomFromText()`, `GeometryFromText()`, `GeomFromWKB()`, `GeometryFromWKB()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
@@ -88,7 +88,13 @@
 | `StartPoint()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
 | `SUBTIME()` | 8.0.28 (NR) | 戻り値の型を決める方法を変更 https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_addtime |
 | `Touches()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| `UNIX_TIMESTAMP()` | 8.0.28 (NR) | 64 ビット環境では最大値が `32536771199.999999`（`'3001-01-18 23:59:59.999999' UTC`） に https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_unix-timestamp |
 | `UpdateXML()` |  | XML 関数は開発中の機能なので随時修正が入る https://dev.mysql.com/doc/refman/8.0/ja/xml-functions.html |
+| `VALUES()` | 8.0.20 (D) | `INSERT ... ON DUPLICATE KEY UPDATE`で`UPDATE`句の`VALUES()`が非推奨に https://dev.mysql.com/doc/refman/8.0/ja/miscellaneous-functions.html#function_values |
+| `WAIT_UNTIL_SQL_THREAD_AFTER_GTIDS` | 8.0.18 (D) | 非推奨に→`WAIT_FOR_EXECUTED_GTID_SET()`で代替 https://dev.mysql.com/doc/refman/8.0/ja/gtid-functions.html#function_wait-until-sql-thread-after-gtids |
+| `Within()` | 5.7.6 (D) 8.0.0 (R) | `MBR` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| `X()`, `Y()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
+| （型）`YEAR()` | 5.7.5 (R) | 関数ではないが、`YEAR(2)`型が廃止 https://dev.mysql.com/doc/refman/5.7/en/migrating-from-year2.html |
 
 ---
 
