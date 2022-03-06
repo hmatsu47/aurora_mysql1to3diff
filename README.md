@@ -10,7 +10,4 @@
 
 - **[予約語](mysql57_80_reserved.md)**
 - **[オペレータ](mysql57_80_func_oper.md#オペレータ)・[ビルトイン関数](mysql57_80_func_oper.md#ビルトイン関数)**
-
-### 作業中ファイル
-
-- **[パラメータ](/work/aurora_param_diff.csv)**
+- **[パラメータ](aurora-mysql1_3_param.md)**
