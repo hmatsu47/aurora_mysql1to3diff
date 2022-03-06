@@ -11,3 +11,8 @@
 - **[予約語](mysql57_80_reserved.md)**
 - **[オペレータ](mysql57_80_func_oper.md#オペレータ)・[ビルトイン関数](mysql57_80_func_oper.md#ビルトイン関数)**
 - **[パラメータ](aurora-mysql1_3_param.md)**
+
+## 調査中
+
+- **[その他マニュアル全般](mysql57_80_manual_all.md)**
+  - MySQL 5.7 の削除・廃止分まで確認済み

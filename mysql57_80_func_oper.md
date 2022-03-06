@@ -94,7 +94,6 @@
 | `WAIT_UNTIL_SQL_THREAD_AFTER_GTIDS` | 8.0.18 (D) | 非推奨に→`WAIT_FOR_EXECUTED_GTID_SET()`で代替 https://dev.mysql.com/doc/refman/8.0/ja/gtid-functions.html#function_wait-until-sql-thread-after-gtids |
 | `Within()` | 5.7.6 (D) 8.0.0 (R) | `MBR` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
 | `X()`, `Y()` | 5.7.6 (D) 8.0.0 (R) | `ST_` の付かない GIS 関数の廃止 GIS 関数自体の刷新も実施 **[(\*2)](#2)** |
-| （型）`YEAR()` | 5.7.5 (R) | 関数ではないが、`YEAR(2)`型が廃止 https://dev.mysql.com/doc/refman/5.7/en/migrating-from-year2.html |
 
 ---
 
