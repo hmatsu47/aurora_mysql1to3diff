@@ -50,7 +50,7 @@ gtid-mode,変更,○,○,○,,OFF,FALSE,system,OFF_PERMISSIVE,TRUE,system,
 histogram_generation_max_mem_size,追加,,,○,○,,,,20000000,TRUE,engine-default,
 information_schema_stats_expiry,追加,,,○,○,,,,,TRUE,engine-default,
 innodb_adaptive_hash_index_parts,追加,,,○,,,,,8,TRUE,engine-default,
-innodb_autoinc_lock_mode,変更,○,,○,,1,TRUE,engine-default,2,TRUE,engine-default,
+innodb_autoinc_lock_mode,変更,○,,○,,1,TRUE,engine-default,2,TRUE,engine-default,https://dev.mysql.com/doc/refman/8.0/ja/innodb-auto-increment-handling.html
 innodb_checksums,削除,○,,,,0,FALSE,system,,,,
 innodb_cmp_per_index_enabled,削除,○,,,,0,TRUE,engine-default,,,,
 innodb_compression_failure_threshold_pct,削除,○,○,,,5,TRUE,engine-default,,,,

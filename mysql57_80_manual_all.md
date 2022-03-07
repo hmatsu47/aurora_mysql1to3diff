@@ -8,6 +8,9 @@
 
 ## 文字セット・照合順序
 
+- `utf8mb4`のデフォルト照合順序が`utf8mb4_0900_ai_ci`へ
+  - その他、フォールバックのルールなど
+    - https://dev.mysql.com/doc/refman/8.0/ja/charset-connection.html
 
 ## データ型
 
@@ -19,8 +22,18 @@
 
 | データ型 | 変更が加わったバージョン | 変更の概要・参考リンク |
 | ---- | ---- | ---- |
+| `CHANGE MASTER TO` | 8.0.23 | `CHANGE REPLICATION SOURCE TO`へ https://dev.mysql.com/doc/refman/8.0/ja/change-replication-source-to.html |
+| `CREATE TEMPORARY TABLE`での`TABLESPACE = {innodb_file_per_table | innodb_temporary}` | 8.0.13 (D) | 非推奨に https://dev.mysql.com/doc/refman/8.0/ja/create-temporary-table.html |
+| `GROUP BY ASC/DESC` | 8.0.13 (R) | 廃止 https://dev.mysql.com/doc/refman/8.0/ja/upgrading-from-previous-series.html#upgrade-sql-changes |
 | `INSERT DELAYED` | 5.7.? (R) | 廃止 https://dev.mysql.com/doc/refman/5.7/en/insert-delayed.html |
 | `REPLACE DELAYED` | 5.7.? (R) | 廃止 https://dev.mysql.com/doc/refman/5.7/en/replace.html |
 | `SHOW ENGINE INNODB MUTEX` | 5.7.2 (R) → 5.7.8 | 一旦廃止後再導入（仕様変更に注意） https://dev.mysql.com/doc/refman/5.7/en/show-engine.html |
+| `START SLAVE` | 8.0.22 | `START REPLICA`へ https://dev.mysql.com/doc/refman/8.0/ja/start-replica.html |
 
 ## その他
+
+- 64 文字を超える外部キー制約名を持つテーブルは NG に
+- 明示的に定義されたカラム名が 64 文字を超えるビューは NG に
+  - 以前は 255 文字まで許可
+- 個々の ENUM または SET カラム要素の長さが 255 文字または 1020 バイトを超えるテーブルまたはストアドプロシージャは NG に
+  - 以前は ENUM または SET のカラム要素の最大長 64K
