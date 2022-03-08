@@ -15,4 +15,4 @@
 ## 調査中
 
 - **[その他マニュアル全般](mysql57_80_manual_all.md)**
-  - MySQL 8.0 での検索 391 件中 80 件目（5.3 The mysql System Schema）まで確認済み
+  - MySQL 8.0 での検索 391 件中 150 件目（5.6.7.7 Cloning for Replication）まで確認済み
