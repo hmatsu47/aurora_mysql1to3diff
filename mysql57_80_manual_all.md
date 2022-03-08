@@ -8,6 +8,9 @@
 - `SELECT`・`UNION'パーサールールの変更
   - https://dev.mysql.com/doc/refman/8.0/ja/union.html#union-8-0-versus-5-7
     - ロック句を含む `SELECT`ステートメントにはカッコが必要に
+- `CHECK`制約の有効化
+  - 過去に無視された制約の定義が有効あるいはエラーに
+    - https://dev.mysql.com/doc/refman/8.0/ja/alter-table.html#alter-table-foreign-key
 
 ## 文字セット・照合順序
 
