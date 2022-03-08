@@ -23,7 +23,7 @@
 | データ型 | 変更が加わったバージョン | 変更の概要・参考リンク |
 | ---- | ---- | ---- |
 | `CHANGE MASTER TO` | 8.0.23 | `CHANGE REPLICATION SOURCE TO`へ https://dev.mysql.com/doc/refman/8.0/ja/change-replication-source-to.html |
-| `CREATE TEMPORARY TABLE`での`TABLESPACE = {innodb_file_per_table | innodb_temporary}` | 8.0.13 (D) | 非推奨に https://dev.mysql.com/doc/refman/8.0/ja/create-temporary-table.html |
+| `CREATE TEMPORARY TABLE`での`TABLESPACE = {innodb_file_per_table \| innodb_temporary}` | 8.0.13 (D) | 非推奨に https://dev.mysql.com/doc/refman/8.0/ja/create-temporary-table.html |
 | `GROUP BY ASC/DESC` | 8.0.13 (R) | 廃止 https://dev.mysql.com/doc/refman/8.0/ja/upgrading-from-previous-series.html#upgrade-sql-changes |
 | `INSERT DELAYED` | 5.7.? (R) | 廃止 https://dev.mysql.com/doc/refman/5.7/en/insert-delayed.html |
 | `REPLACE DELAYED` | 5.7.? (R) | 廃止 https://dev.mysql.com/doc/refman/5.7/en/replace.html |
@@ -37,3 +37,11 @@
   - 以前は 255 文字まで許可
 - 個々の ENUM または SET カラム要素の長さが 255 文字または 1020 バイトを超えるテーブルまたはストアドプロシージャは NG に
   - 以前は ENUM または SET のカラム要素の最大長 64K
+- アトミック DDL 導入によるレプリケーションの挙動変化
+  - `IF EXISTS`が付かない`DROP TABLE`のレプリケーション差異
+    - https://dev.mysql.com/doc/refman/8.0/ja/atomic-ddl.html#atomic-ddl-statement-behavior
+- `CREATE TABLE ... SELECT`のトランザクションの扱いが変更（8.0.21）
+  - 行ベースレプリケーションで 1 つのトランザクションとして記録
+- パーティショニングの実装を変更
+  - Aurora MySQL での実質的な非互換は無し
+    - https://dev.mysql.com/doc/refman/8.0/ja/partitioning-overview.html
