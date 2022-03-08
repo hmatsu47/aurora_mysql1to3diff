@@ -5,12 +5,12 @@
 
 ## 言語構造（キーワードと予約語を除く）
 
-- `SELECT`・`UNION`パーサールールの変更
-  - https://dev.mysql.com/doc/refman/8.0/ja/union.html#union-8-0-versus-5-7
-    - ロック句を含む `SELECT`ステートメントにはカッコが必要に
 - `CHECK`制約の有効化
   - 過去に無視された制約の定義が有効あるいはエラーに
     - https://dev.mysql.com/doc/refman/8.0/ja/alter-table.html#alter-table-foreign-key
+- `SELECT`・`UNION`パーサールールの変更
+  - https://dev.mysql.com/doc/refman/8.0/ja/union.html#union-8-0-versus-5-7
+    - ロック句を含む `SELECT`ステートメントにはカッコが必要に
 
 ## 文字セット・照合順序
 
@@ -43,26 +43,26 @@
 ## その他
 
 - 64 文字を超える外部キー制約名を持つテーブルは NG に
-- 明示的に定義されたカラム名が 64 文字を超えるビューは NG に
-  - 以前は 255 文字まで許可
-- 個々の ENUM または SET カラム要素の長さが 255 文字または 1020 バイトを超えるテーブルまたはストアドプロシージャは NG に
-  - 以前は ENUM または SET のカラム要素の最大長 64K
+- Connector を対応バージョンに入れ替え
+  - https://dev.mysql.com/doc/refman/8.0/ja/connectors-apis.html
+- `CREATE TABLE ... SELECT`のトランザクションの扱いが変更（8.0.21）
+  - 行ベースレプリケーションで 1 つのトランザクションとして記録
+- GTID レプリケーションの非互換
+  -  https://dev.mysql.com/doc/refman/8.0/ja/replication-options-gtids.html
+- `GRANT`操作の読み取りロックの変更（8.0.22）
+  - https://dev.mysql.com/doc/refman/8.0/ja/grant-tables.html#grant-tables-concurrency
 - アトミック DDL 導入によるレプリケーションの挙動変化
   - `IF EXISTS`が付かない`DROP TABLE`・`DROP VIEW`のレプリケーション差異
     - https://dev.mysql.com/doc/refman/8.0/ja/atomic-ddl.html#atomic-ddl-statement-behavior
-- `CREATE TABLE ... SELECT`のトランザクションの扱いが変更（8.0.21）
-  - 行ベースレプリケーションで 1 つのトランザクションとして記録
-- パーティショニングの実装を変更
-  - Aurora MySQL での実質的な非互換は無し
-    - https://dev.mysql.com/doc/refman/8.0/ja/partitioning-overview.html
 - デフォルト認証が変わったことにより、Aurora MySQL v3 で新規ユーザを作成した場合に既存アプリケーションから接続できない可能性がある
   - `CREATE USER`時に`mysql_native_password`を指定する
     - https://dev.mysql.com/doc/refman/8.0/ja/create-user.html#create-user-overview
+- パーティショニングの実装を変更
+  - Aurora MySQL での実質的な非互換は無し
+    - https://dev.mysql.com/doc/refman/8.0/ja/partitioning-overview.html
 - 管理者権限の分割（Aurora MySQL v1 → v3 変更点でもピックアップ）
   - https://dev.mysql.com/doc/refman/8.0/ja/privileges-provided.html
-- GTID レプリケーションの非互換
-  -  https://dev.mysql.com/doc/refman/8.0/ja/replication-options-gtids.html
-- Connector を対応バージョンに入れ替え
-  - https://dev.mysql.com/doc/refman/8.0/ja/connectors-apis.html
-- `GRANT`操作の読み取りロックの変更（8.0.22）
-  - https://dev.mysql.com/doc/refman/8.0/ja/grant-tables.html#grant-tables-concurrency
+- 個々の ENUM または SET カラム要素の長さが 255 文字または 1020 バイトを超えるテーブルまたはストアドプロシージャは NG に
+  - 以前は ENUM または SET のカラム要素の最大長 64K
+- 明示的に定義されたカラム名が 64 文字を超えるビューは NG に
+  - 以前は 255 文字まで許可
