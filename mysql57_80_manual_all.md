@@ -5,7 +5,7 @@
 
 ## 言語構造（キーワードと予約語を除く）
 
-- `SELECT`・`UNION'パーサールールの変更
+- `SELECT`・`UNION`パーサールールの変更
   - https://dev.mysql.com/doc/refman/8.0/ja/union.html#union-8-0-versus-5-7
     - ロック句を含む `SELECT`ステートメントにはカッコが必要に
 - `CHECK`制約の有効化
