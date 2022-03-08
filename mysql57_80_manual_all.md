@@ -5,6 +5,9 @@
 
 ## 言語構造（キーワードと予約語を除く）
 
+- `SELECT`・`UNION'パーサールールの変更
+  - https://dev.mysql.com/doc/refman/8.0/ja/union.html#union-8-0-versus-5-7
+    - ロック句を含む `SELECT`ステートメントにはカッコが必要に
 
 ## 文字セット・照合順序
 
@@ -30,6 +33,9 @@
 | `SHOW ENGINE INNODB MUTEX` | 5.7.2 (R) → 5.7.8 | 一旦廃止後再導入（仕様変更に注意） https://dev.mysql.com/doc/refman/5.7/en/show-engine.html |
 | `SHOW SLAVE STATUS` | 8.0.22 | `SHOW REPLICA STATUS`へ https://dev.mysql.com/doc/refman/8.0/ja/show-replica-status.html |
 | `START SLAVE` | 8.0.22 | `START REPLICA`へ https://dev.mysql.com/doc/refman/8.0/ja/start-replica.html |
+| `TABLE ... UNION (TABLE)`の挙動の変更 | 8.0.19 | https://dev.mysql.com/doc/refman/8.0/ja/union.html#union-table |
+| `UNION DISTINCT`・`UNION ALL`の挙動の変更 | 8.0.19 | https://dev.mysql.com/doc/refman/8.0/ja/union.html#union-distinct-all |
+| `UNION`の制限変更 | 8.0.20 | https://dev.mysql.com/doc/refman/8.0/ja/union.html#union-restrictions |
 
 ## その他
 
