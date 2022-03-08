@@ -28,6 +28,7 @@
 | `INSERT DELAYED` | 5.7.? (R) | 廃止 https://dev.mysql.com/doc/refman/5.7/en/insert-delayed.html |
 | `REPLACE DELAYED` | 5.7.? (R) | 廃止 https://dev.mysql.com/doc/refman/5.7/en/replace.html |
 | `SHOW ENGINE INNODB MUTEX` | 5.7.2 (R) → 5.7.8 | 一旦廃止後再導入（仕様変更に注意） https://dev.mysql.com/doc/refman/5.7/en/show-engine.html |
+| `SHOW SLAVE STATUS` | 8.0.22 | `SHOW REPLICA STATUS`へ https://dev.mysql.com/doc/refman/8.0/ja/show-replica-status.html |
 | `START SLAVE` | 8.0.22 | `START REPLICA`へ https://dev.mysql.com/doc/refman/8.0/ja/start-replica.html |
 
 ## その他
