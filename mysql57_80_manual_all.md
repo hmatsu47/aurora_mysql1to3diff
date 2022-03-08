@@ -45,3 +45,10 @@
 - パーティショニングの実装を変更
   - Aurora MySQL での実質的な非互換は無し
     - https://dev.mysql.com/doc/refman/8.0/ja/partitioning-overview.html
+- デフォルト認証が変わったことにより、Aurora MySQL v3 で新規ユーザを作成した場合に既存アプリケーションから接続できない可能性がある
+  - `CREATE USER`時に`mysql_native_password`を指定する
+    - https://dev.mysql.com/doc/refman/8.0/ja/create-user.html#create-user-overview
+- 管理者権限の分割（Aurora MySQL v1 → v3 変更点でもピックアップ）
+  - https://dev.mysql.com/doc/refman/8.0/ja/privileges-provided.html
+- GTID レプリケーションの非互換
+  -  https://dev.mysql.com/doc/refman/8.0/ja/replication-options-gtids.html
