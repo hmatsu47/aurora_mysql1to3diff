@@ -48,7 +48,7 @@
 - 個々の ENUM または SET カラム要素の長さが 255 文字または 1020 バイトを超えるテーブルまたはストアドプロシージャは NG に
   - 以前は ENUM または SET のカラム要素の最大長 64K
 - アトミック DDL 導入によるレプリケーションの挙動変化
-  - `IF EXISTS`が付かない`DROP TABLE`のレプリケーション差異
+  - `IF EXISTS`が付かない`DROP TABLE`・`DROP VIEW`のレプリケーション差異
     - https://dev.mysql.com/doc/refman/8.0/ja/atomic-ddl.html#atomic-ddl-statement-behavior
 - `CREATE TABLE ... SELECT`のトランザクションの扱いが変更（8.0.21）
   - 行ベースレプリケーションで 1 つのトランザクションとして記録
@@ -62,3 +62,7 @@
   - https://dev.mysql.com/doc/refman/8.0/ja/privileges-provided.html
 - GTID レプリケーションの非互換
   -  https://dev.mysql.com/doc/refman/8.0/ja/replication-options-gtids.html
+- Connector を対応バージョンに入れ替え
+  - https://dev.mysql.com/doc/refman/8.0/ja/connectors-apis.html
+- `GRANT`操作の読み取りロックの変更（8.0.22）
+  - https://dev.mysql.com/doc/refman/8.0/ja/grant-tables.html#grant-tables-concurrency
