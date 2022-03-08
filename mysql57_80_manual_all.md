@@ -31,8 +31,9 @@
 | `CHANGE MASTER TO` | 8.0.23 | `CHANGE REPLICATION SOURCE TO`へ https://dev.mysql.com/doc/refman/8.0/ja/change-replication-source-to.html |
 | `CREATE TEMPORARY TABLE`での`TABLESPACE = {innodb_file_per_table \| innodb_temporary}` | 8.0.13 (D) | 非推奨に https://dev.mysql.com/doc/refman/8.0/ja/create-temporary-table.html |
 | `GROUP BY ASC/DESC` | 8.0.13 (R) | 廃止 https://dev.mysql.com/doc/refman/8.0/ja/upgrading-from-previous-series.html#upgrade-sql-changes |
-| `INSERT DELAYED` | 5.7.? (R) | 廃止 https://dev.mysql.com/doc/refman/5.7/en/insert-delayed.html |
-| `REPLACE DELAYED` | 5.7.? (R) | 廃止 https://dev.mysql.com/doc/refman/5.7/en/replace.html |
+| `INSERT DELAYED` | 5.7.? (R) | 廃止 https://dev.mysql.com/doc/refman/5.7/en/insert-delayed.html InnoDB では元から使えない |
+| `REPLACE DELAYED` | 5.7.? (R) | 廃止 https://dev.mysql.com/doc/refman/5.7/en/replace.html InnoDB では元から使えない |
+| `RESET SLAVE` | 8.0.22 | `RESET REPLICA`へ https://dev.mysql.com/doc/refman/8.0/ja/reset-replica.html |
 | `SHOW ENGINE INNODB MUTEX` | 5.7.2 (R) → 5.7.8 | 一旦廃止後再導入（仕様変更に注意） https://dev.mysql.com/doc/refman/5.7/en/show-engine.html |
 | `SHOW SLAVE STATUS` | 8.0.22 | `SHOW REPLICA STATUS`へ https://dev.mysql.com/doc/refman/8.0/ja/show-replica-status.html |
 | `START SLAVE` | 8.0.22 | `START REPLICA`へ https://dev.mysql.com/doc/refman/8.0/ja/start-replica.html |
@@ -47,6 +48,7 @@
   - https://dev.mysql.com/doc/refman/8.0/ja/connectors-apis.html
 - `CREATE TABLE ... SELECT`のトランザクションの扱いが変更（8.0.21）
   - 行ベースレプリケーションで 1 つのトランザクションとして記録
+    - https://dev.mysql.com/doc/refman/8.0/ja/replication-features-create-select.html
 - GTID レプリケーションの非互換
   -  https://dev.mysql.com/doc/refman/8.0/ja/replication-options-gtids.html
 - `GRANT`操作の読み取りロックの変更（8.0.22）
@@ -58,8 +60,10 @@
   - `CREATE USER`時に`mysql_native_password`を指定する
     - https://dev.mysql.com/doc/refman/8.0/ja/create-user.html#create-user-overview
 - パーティショニングの実装を変更
-  - Aurora MySQL での実質的な非互換は無し
+  - 基本的には Aurora MySQL での実質的な非互換は無い
     - https://dev.mysql.com/doc/refman/8.0/ja/partitioning-overview.html
+  - `KEY`パーティショニングのカラムインデックス接頭辞が非推奨に（8.0.21）
+    - https://dev.mysql.com/doc/refman/8.0/ja/partitioning-limitations.html#partitioning-limitations-prefixes
 - 管理者権限の分割（Aurora MySQL v1 → v3 変更点でもピックアップ）
   - https://dev.mysql.com/doc/refman/8.0/ja/privileges-provided.html
 - 個々の ENUM または SET カラム要素の長さが 255 文字または 1020 バイトを超えるテーブルまたはストアドプロシージャは NG に
