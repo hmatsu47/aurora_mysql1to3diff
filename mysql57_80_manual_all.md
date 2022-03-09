@@ -28,7 +28,8 @@
 
 | データ型 | 変更が加わったバージョン | 変更の概要・参考リンク |
 | ---- | ---- | ---- |
-| `DATE(2)` | 5.7.5 (R) | 廃止→ `DATE(4)` へ https://dev.mysql.com/doc/refman/5.7/en/migrating-from-year2.html |
+| `YEAR(2)` | 5.7.5 (R) | 廃止→ `YEAR(4)`へ https://dev.mysql.com/doc/refman/5.7/en/migrating-from-year2.html |
+| `YEAR(4)` | 8.0.19 (R) | 非推奨→ `YEAR`へ https://dev.mysql.com/doc/refman/8.0/ja/date-and-time-type-syntax.html |
 
 ## SQL ステートメントなど
 
