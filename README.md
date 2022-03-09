@@ -20,7 +20,7 @@
 ## 調査対象外
 
 - **`INFORMATION_SCHEMA`・パフォーマンススキーマ・`sys`スキーマの各テーブル・ビュー**
-  - 大幅に変更されており、利用対象をピンポイントで調べたほうが効率が良いため
+  - 大幅に変更されており、利用対象のテーブル等をピンポイントで調べたほうが効率が良いため
     - https://dev.mysql.com/doc/refman/8.0/ja/information-schema.html
     - https://dev.mysql.com/doc/refman/8.0/ja/performance-schema.html
     - https://dev.mysql.com/doc/refman/8.0/ja/sys-schema.html
