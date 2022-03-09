@@ -2,6 +2,12 @@
 
 ## 最適化（オプティマイザ）
 
+- 空間インデックス
+  - Aurora MySQL v1 独自機能で InnoDB に実装、Aurora MySQL v3 で本家 MySQL のものに置き替えられた
+  - SRID=0 ではオプティマイザに無視されるように
+    - https://dev.mysql.com/doc/refman/8.0/ja/spatial-index-optimization.html
+    - https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMySQL.Overview.html#Aurora.AuroraMySQL.Spatial
+    - https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.MySQL80.html#AuroraMySQL.mysql80-spatial
 
 ## 言語構造（キーワードと予約語を除く）
 
@@ -28,15 +34,17 @@
 
 | データ型 | 変更が加わったバージョン | 変更の概要・参考リンク |
 | ---- | ---- | ---- |
-| `CHANGE MASTER TO` | 8.0.23 | `CHANGE REPLICATION SOURCE TO`へ https://dev.mysql.com/doc/refman/8.0/ja/change-replication-source-to.html |
+| `CHANGE MASTER TO` | 8.0.23 (D) | `CHANGE REPLICATION SOURCE TO`へ https://dev.mysql.com/doc/refman/8.0/ja/change-replication-source-to.html |
 | `CREATE TEMPORARY TABLE`での`TABLESPACE = {innodb_file_per_table \| innodb_temporary}` | 8.0.13 (D) | 非推奨に https://dev.mysql.com/doc/refman/8.0/ja/create-temporary-table.html |
-| `GROUP BY ASC/DESC` | 8.0.13 (R) | 廃止 https://dev.mysql.com/doc/refman/8.0/ja/upgrading-from-previous-series.html#upgrade-sql-changes |
+| `GROUP BY ASC/DESC` | 8.0.13 (R) | 廃止 https://dev.mysql.com/doc/refman/8.0/ja/upgrading-from-previous-series.html#upgrade-sql-changes 8.0.12 でグループ化関数を使用した`ORDER BY`サポート |
 | `INSERT DELAYED` | 5.7.? (R) | 廃止 https://dev.mysql.com/doc/refman/5.7/en/insert-delayed.html InnoDB では元から使えない |
+| `ORDER BY 【列番号】` | 8.0.? (D) | 非推奨 https://dev.mysql.com/doc/refman/8.0/ja/select.html カッコで囲まれたクエリー式内で発生し外部クエリーにも適用される`ORDER BY`（動作不定）も非推奨に |
 | `REPLACE DELAYED` | 5.7.? (R) | 廃止 https://dev.mysql.com/doc/refman/5.7/en/replace.html InnoDB では元から使えない |
-| `RESET SLAVE` | 8.0.22 | `RESET REPLICA`へ https://dev.mysql.com/doc/refman/8.0/ja/reset-replica.html |
+| `RESET SLAVE` | 8.0.22 (D) | `RESET REPLICA`へ https://dev.mysql.com/doc/refman/8.0/ja/reset-replica.html |
 | `SHOW ENGINE INNODB MUTEX` | 5.7.2 (R) → 5.7.8 | 一旦廃止後再導入（仕様変更に注意） https://dev.mysql.com/doc/refman/5.7/en/show-engine.html |
-| `SHOW SLAVE STATUS` | 8.0.22 | `SHOW REPLICA STATUS`へ https://dev.mysql.com/doc/refman/8.0/ja/show-replica-status.html |
-| `START SLAVE` | 8.0.22 | `START REPLICA`へ https://dev.mysql.com/doc/refman/8.0/ja/start-replica.html |
+| `SHOW SLAVE STATUS` | 8.0.22 (D) | `SHOW REPLICA STATUS`へ https://dev.mysql.com/doc/refman/8.0/ja/show-replica-status.html |
+| `SQL_CALC_FOUND_ROWS` | 8.0.17 (D) | 非推奨 https://dev.mysql.com/doc/refman/8.0/ja/select.html |
+| `START SLAVE` | 8.0.22 (D) | `START REPLICA`へ https://dev.mysql.com/doc/refman/8.0/ja/start-replica.html |
 | `TABLE ... UNION (TABLE)`の挙動の変更 | 8.0.19 | https://dev.mysql.com/doc/refman/8.0/ja/union.html#union-table |
 | `UNION DISTINCT`・`UNION ALL`の挙動の変更 | 8.0.19 | https://dev.mysql.com/doc/refman/8.0/ja/union.html#union-distinct-all |
 | `UNION`の制限変更 | 8.0.20 | https://dev.mysql.com/doc/refman/8.0/ja/union.html#union-restrictions |
@@ -53,6 +61,19 @@
   -  https://dev.mysql.com/doc/refman/8.0/ja/replication-options-gtids.html
 - `GRANT`操作の読み取りロックの変更（8.0.22）
   - https://dev.mysql.com/doc/refman/8.0/ja/grant-tables.html#grant-tables-concurrency
+- SQL モードの非推奨・削除
+  - 5.6.17 で非推奨、5.7 で厳密モードの動作の一部に（個別に`ERROR_FOR_DIVISION_BY_ZERO`を指定しても動作が変わらないように）
+    - `ERROR_FOR_DIVISION_BY_ZERO`
+  - 5.7.22 で非推奨、8.0 で削除
+    - `DB2`, `MAXDB`, `MSSQL`, `MYSQL323`, `MYSQL40`, `ORACLE`, `POSTGRESQL`, `NO_FIELD_OPTIONS`, `NO_KEY_OPTIONS`, `NO_TABLE_OPTIONS`
+      - https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-changes
+  - 8.0 で削除
+    - `NO_AUTO_CREATE_USER`
+      - MySQL のデフォルト（≠ Aurora MySQL のデフォルト）からも削除（`GRANT`での暗黙のユーザ作成が廃止されたため）
+      - https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_auto_create_user
+  - 8.0.13 で非推奨
+    - `PAD_CHAR_TO_FULL_LENGTH`
+      - https://dev.mysql.com/doc/refman/8.0/ja/sql-mode.html#sql-mode-full
 - アトミック DDL 導入によるレプリケーションの挙動変化
   - `IF EXISTS`が付かない`DROP TABLE`・`DROP VIEW`のレプリケーション差異
     - https://dev.mysql.com/doc/refman/8.0/ja/atomic-ddl.html#atomic-ddl-statement-behavior
