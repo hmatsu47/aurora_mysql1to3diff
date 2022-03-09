@@ -15,4 +15,4 @@
 ## 調査中
 
 - **[その他マニュアル全般](mysql57_80_manual_all.md)**
-  - MySQL 8.0 での検索 391 件中 200 件目（B.3.3.2 How to Reset the Root Password）まで確認済み
+  - MySQL 8.0 での検索 391 件中 220 件目（2.10.5 Starting and Stopping MySQL Automatically）まで確認済み
