@@ -62,6 +62,8 @@
   -  https://dev.mysql.com/doc/refman/8.0/ja/replication-options-gtids.html
 - `GRANT`操作の読み取りロックの変更（8.0.22）
   - https://dev.mysql.com/doc/refman/8.0/ja/grant-tables.html#grant-tables-concurrency
+- `LOCK TABLES ... WRITE`による明示的テーブルロック時の`innodb_table_locks=0`無効化
+  - トリガーなどによる暗黙的テーブルロック時は有効
 - SQL モードの非推奨・削除
   - 5.6.17 で非推奨、5.7 で厳密モードの動作の一部に（個別に`ERROR_FOR_DIVISION_BY_ZERO`を指定しても動作が変わらないように）
     - `ERROR_FOR_DIVISION_BY_ZERO`
@@ -90,5 +92,8 @@
   - https://dev.mysql.com/doc/refman/8.0/ja/privileges-provided.html
 - 個々の ENUM または SET カラム要素の長さが 255 文字または 1020 バイトを超えるテーブルまたはストアドプロシージャは NG に
   - 以前は ENUM または SET のカラム要素の最大長 64K
+- 内部一時テーブルの変更（Aurora MySQL v1 → v3 変更点でもピックアップ）
+  - https://dev.mysql.com/doc/refman/8.0/ja/internal-temporary-tables.html
+  - https://dev.mysql.com/doc/refman/8.0/en/internal-temporary-tables.html （8.0.27 以降の変更）
 - 明示的に定義されたカラム名が 64 文字を超えるビューは NG に
   - 以前は 255 文字まで許可
