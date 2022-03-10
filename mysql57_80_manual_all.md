@@ -17,6 +17,8 @@
 - `SELECT`・`UNION`パーサールールの変更
   - https://dev.mysql.com/doc/refman/8.0/ja/union.html#union-8-0-versus-5-7
     - ロック句を含む `SELECT`ステートメントにはカッコが必要に
+- `\N`は`NULL`のシノニムではなくなった
+  - https://dev.mysql.com/doc/refman/8.0/ja/mysql-nutshell.html#mysql-nutshell-removals
 
 ## 文字セット・照合順序
 
@@ -38,6 +40,7 @@
 | ---- | ---- | ---- |
 | `CHANGE MASTER TO` | 8.0.23 (D) | `CHANGE REPLICATION SOURCE TO`へ https://dev.mysql.com/doc/refman/8.0/ja/change-replication-source-to.html |
 | `CREATE TEMPORARY TABLE`での`TABLESPACE = {innodb_file_per_table \| innodb_temporary}` | 8.0.13 (D) | 非推奨に https://dev.mysql.com/doc/refman/8.0/ja/create-temporary-table.html |
+| `EXPLAIN` | 8.0.? (R) | `EXTENDED`・`PARTITIONS`キーワード削除（常に有効） |
 | `GRANT` | 8.0.? (R) | 暗黙のユーザ作成およびユーザ属性のみの変更を廃止 https://dev.mysql.com/doc/refman/8.0/ja/mysql-nutshell.html#mysql-nutshell-removals |
 | `GROUP BY ASC/DESC` | 8.0.13 (R) | 廃止 https://dev.mysql.com/doc/refman/8.0/ja/upgrading-from-previous-series.html#upgrade-sql-changes 8.0.12 でグループ化関数を使用した`ORDER BY`サポート |
 | `INSERT DELAYED` | 5.7.? (R) | 廃止 https://dev.mysql.com/doc/refman/5.7/en/insert-delayed.html InnoDB では元から使えない |
@@ -73,6 +76,8 @@
   - 5.7.22 で非推奨、8.0 で削除
     - `DB2`, `MAXDB`, `MSSQL`, `MYSQL323`, `MYSQL40`, `ORACLE`, `POSTGRESQL`, `NO_FIELD_OPTIONS`, `NO_KEY_OPTIONS`, `NO_TABLE_OPTIONS`
       - https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-changes
+      - `MAXDB`削除→`CREATE TABLE`・`ALTER TABLE`の`TIMESTAMP`型が`DATETIME`として扱われなくなることを意味
+        - https://dev.mysql.com/doc/refman/8.0/ja/mysql-nutshell.html#mysql-nutshell-removals
   - 8.0 で削除
     - `NO_AUTO_CREATE_USER`
       - MySQL のデフォルト（≠ Aurora MySQL のデフォルト）からも削除（`GRANT`での暗黙のユーザ作成が廃止されたため）
