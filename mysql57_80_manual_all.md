@@ -23,7 +23,7 @@
 ## 文字セット・照合順序
 
 - `utf8mb3`が非推奨に
-  - 現時点では MySQL 8.0 含め`utf8`は`utf8mb3`のシノニムなので同様に非推奨
+  - 現時点では MySQL 8.0 含め`utf8`は`utf8mb3`のシノニム
 - `utf8mb4`のデフォルト照合順序が`utf8mb4_0900_ai_ci`へ
   - その他、フォールバックのルールなど
     - https://dev.mysql.com/doc/refman/8.0/ja/charset-connection.html
@@ -68,7 +68,6 @@
 ## その他
 
 - 64 文字を超える外部キー制約名を持つテーブルは NG に
-- `AUTO_INCREMENT`が`FLOAT`・`DOUBLE`型カラム（シノニム含む）で非推奨に
 - Connector を対応バージョンに入れ替え
   - https://dev.mysql.com/doc/refman/8.0/ja/connectors-apis.html
 - `CREATE TABLE ... SELECT`のトランザクションの扱いが変更（8.0.21）
