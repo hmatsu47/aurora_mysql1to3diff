@@ -22,6 +22,8 @@
 
 ## 文字セット・照合順序
 
+- `utf8mb3`が非推奨に
+  - 現時点では MySQL 8.0 含め`utf8`は`utf8mb3`のシノニムなので同様に非推奨
 - `utf8mb4`のデフォルト照合順序が`utf8mb4_0900_ai_ci`へ
   - その他、フォールバックのルールなど
     - https://dev.mysql.com/doc/refman/8.0/ja/charset-connection.html
@@ -30,8 +32,12 @@
 
 | データ型 | 変更が加わったバージョン | 変更の概要・参考リンク |
 | ---- | ---- | ---- |
+| `FLOAT`・`DECIMAL`・`DOUBLE`型（シノニム含む）の`UNSIGNED`属性 | 8.0.? (D) | 非推奨 https://dev.mysql.com/doc/refman/8.0/ja/mysql-nutshell.html#mysql-nutshell-deprecations |
+| `FLOAT`・`DOUBLE`型（シノニム含む）の`AUTO_INCREMENT` | 8.0.? (D) | 非推奨 https://dev.mysql.com/doc/refman/8.0/ja/mysql-nutshell.html#mysql-nutshell-deprecations |
+| `FLOAT(M,D)`・`DOUBLE(M,D)`（シノニム含む） | 8.0.? (D) | 非推奨 https://dev.mysql.com/doc/refman/8.0/ja/mysql-nutshell.html#mysql-nutshell-deprecations |
 | `YEAR(2)` | 5.7.5 (R) | 廃止→ `YEAR(4)`へ https://dev.mysql.com/doc/refman/5.7/en/migrating-from-year2.html |
 | `YEAR(4)` | 8.0.19 (R) | 非推奨→ `YEAR`へ https://dev.mysql.com/doc/refman/8.0/ja/date-and-time-type-syntax.html |
+| 数値データ型の`ZEROFILL`属性 | 8.0.? (D) | 非推奨 https://dev.mysql.com/doc/refman/8.0/ja/mysql-nutshell.html#mysql-nutshell-deprecations |
 | 文字列データ型の`BINARY`属性 | 8.0.17 (D) | 非推奨 https://dev.mysql.com/doc/refman/8.0/ja/string-type-syntax.html 8.0.28 で`ASCII`・`UNICODE`も非推奨に https://dev.mysql.com/doc/refman/8.0/en/string-type-syntax.html |
 
 ## SQL ステートメントなど
@@ -41,12 +47,15 @@
 | `CHANGE MASTER TO` | 8.0.23 (D) | `CHANGE REPLICATION SOURCE TO`へ https://dev.mysql.com/doc/refman/8.0/ja/change-replication-source-to.html |
 | `CREATE TEMPORARY TABLE`での`TABLESPACE = {innodb_file_per_table \| innodb_temporary}` | 8.0.13 (D) | 非推奨に https://dev.mysql.com/doc/refman/8.0/ja/create-temporary-table.html |
 | `EXPLAIN` | 8.0.? (R) | `EXTENDED`・`PARTITIONS`キーワード削除（常に有効） |
+| `FLUSH HOSTS` | 8.0.23 (D) | 非推奨 `TRUNCATE TABLE performance_schema.host_cache` で代替 https://dev.mysql.com/doc/refman/8.0/ja/mysql-nutshell.html#mysql-nutshell-deprecations 要`DROP`権限 |
 | `GRANT` | 8.0.? (R) | 暗黙のユーザ作成およびユーザ属性のみの変更を廃止 https://dev.mysql.com/doc/refman/8.0/ja/mysql-nutshell.html#mysql-nutshell-removals |
 | `GROUP BY ASC/DESC` | 8.0.13 (R) | 廃止 https://dev.mysql.com/doc/refman/8.0/ja/upgrading-from-previous-series.html#upgrade-sql-changes 8.0.12 でグループ化関数を使用した`ORDER BY`サポート |
 | `INSERT DELAYED` | 5.7.? (R) | 廃止 https://dev.mysql.com/doc/refman/5.7/en/insert-delayed.html InnoDB では元から使えない |
 | `ORDER BY 【列番号】` | 8.0.? (D) | 非推奨 https://dev.mysql.com/doc/refman/8.0/ja/select.html カッコで囲まれたクエリー式内で発生し外部クエリーにも適用される`ORDER BY`（動作不定）も非推奨に |
 | `REPLACE DELAYED` | 5.7.? (R) | 廃止 https://dev.mysql.com/doc/refman/5.7/en/replace.html InnoDB では元から使えない |
 | `RESET SLAVE` | 8.0.22 (D) | `RESET REPLICA`へ https://dev.mysql.com/doc/refman/8.0/ja/reset-replica.html |
+| `RIGHT JOIN` | 8.0.22 | 以前のバージョンの実行結果が不正確なケースあり→非互換の可能性 https://dev.mysql.com/doc/refman/8.0/ja/mysql-nutshell.html#mysql-nutshell-additions |
+| `SELECT ... INTO ... FROM` | 8.0.20 (D) | 非推奨 `SELECT ... FROM ... INTO`へ https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-20.html |
 | `SHOW ENGINE INNODB MUTEX` | 5.7.2 (R) → 5.7.8 | 一旦廃止後再導入（仕様変更に注意） https://dev.mysql.com/doc/refman/5.7/en/show-engine.html |
 | `SHOW GRANTS` | 8.0.? | 動的権限導入により`ALL PRIVILEGES`が表示されなくなった https://dev.mysql.com/doc/refman/8.0/ja/show-grants.html |
 | `SHOW SLAVE STATUS` | 8.0.22 (D) | `SHOW REPLICA STATUS`へ https://dev.mysql.com/doc/refman/8.0/ja/show-replica-status.html |
@@ -59,6 +68,7 @@
 ## その他
 
 - 64 文字を超える外部キー制約名を持つテーブルは NG に
+- `AUTO_INCREMENT`が`FLOAT`・`DOUBLE`型カラム（シノニム含む）で非推奨に
 - Connector を対応バージョンに入れ替え
   - https://dev.mysql.com/doc/refman/8.0/ja/connectors-apis.html
 - `CREATE TABLE ... SELECT`のトランザクションの扱いが変更（8.0.21）
