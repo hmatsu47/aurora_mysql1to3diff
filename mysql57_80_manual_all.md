@@ -97,6 +97,7 @@
 - アトミック DDL 導入によるレプリケーションの挙動変化
   - `IF EXISTS`が付かない`DROP TABLE`・`DROP VIEW`のレプリケーション差異
     - https://dev.mysql.com/doc/refman/8.0/ja/atomic-ddl.html#atomic-ddl-statement-behavior
+- クライアントの`--ssl`・`--ssl-verify-server-cert`オプションが削除
 - デフォルト認証が変わったことにより、Aurora MySQL v3 で新規ユーザを作成した場合に既存アプリケーションから接続できない可能性がある
   - `CREATE USER`時に`mysql_native_password`を指定する
     - https://dev.mysql.com/doc/refman/8.0/ja/create-user.html#create-user-overview
