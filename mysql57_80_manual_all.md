@@ -49,7 +49,7 @@
 | `EXPLAIN` | 8.0.? (R) | `EXTENDED`・`PARTITIONS`キーワード削除（常に有効） |
 | `FLUSH HOSTS` | 8.0.23 (D) | 非推奨 `TRUNCATE TABLE performance_schema.host_cache` で代替 https://dev.mysql.com/doc/refman/8.0/ja/mysql-nutshell.html#mysql-nutshell-deprecations 要`DROP`権限 |
 | `GRANT` | 8.0.? (R) | 暗黙のユーザ作成およびユーザ属性のみの変更を廃止 https://dev.mysql.com/doc/refman/8.0/ja/mysql-nutshell.html#mysql-nutshell-removals |
-| `GROUP BY ASC/DESC` | 8.0.13 (R) | 廃止 https://dev.mysql.com/doc/refman/8.0/ja/upgrading-from-previous-series.html#upgrade-sql-changes 8.0.12 でグループ化関数を使用した`ORDER BY`サポート |
+| `GROUP BY ASC/DESC` | 8.0.13 (R) | 廃止（`ASC`を省略した暗黙の昇順ソートを含む） https://dev.mysql.com/doc/refman/8.0/ja/upgrading-from-previous-series.html#upgrade-sql-changes 8.0.12 でグループ化関数を使用した`ORDER BY`サポート |
 | `INSERT DELAYED` | 5.7.? (R) | 廃止 https://dev.mysql.com/doc/refman/5.7/en/insert-delayed.html InnoDB では元から使えない |
 | `ORDER BY 【列番号】` | 8.0.? (D) | 非推奨 https://dev.mysql.com/doc/refman/8.0/ja/select.html カッコで囲まれたクエリー式内で発生し外部クエリーにも適用される`ORDER BY`（動作不定）も非推奨に |
 | `REPLACE DELAYED` | 5.7.? (R) | 廃止 https://dev.mysql.com/doc/refman/5.7/en/replace.html InnoDB では元から使えない |
