@@ -108,6 +108,13 @@
     - https://dev.mysql.com/doc/refman/8.0/ja/partitioning-limitations.html#partitioning-limitations-prefixes
 - プリペアドステートメント内のユーザー変数への参照のタイプは、ステートメントが最初に準備されたときに決定され、それ以降にステートメントが実行されるたびにこのタイプが保持されるように（8.0.22）
   - https://dev.mysql.com/doc/refman/8.0/ja/user-variables.html
+- ユーザ権限の評価で`@`の後ろの部分（ネットワーク・ホスト）の評価の優先度が変わった（8.0.23)
+  - https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-23.html#mysqld-8-0-23-connection-management
+  - https://qiita.com/hmatsu47/items/d3f34f39c28a4b802966#%E7%99%BA%E7%94%9F%E3%81%97%E3%81%9F%E5%95%8F%E9%A1%8C%E3%81%9D%E3%81%AE-1--%E7%AE%A1%E7%90%86%E8%80%85%E6%A8%A9%E9%99%90%E3%81%8C%E7%A7%BB%E8%A1%8C%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84
+    - **追記（2022/3/28）**
+- ユーザ権限の指定時、対象スキーマに`%`（ワイルドカード）のみを指定すると無視されるように
+  - https://qiita.com/hmatsu47/items/d3f34f39c28a4b802966#%E7%99%BA%E7%94%9F%E3%81%97%E3%81%9F%E5%95%8F%E9%A1%8C%E3%81%9D%E3%81%AE-2--%E4%B8%80%E9%83%A8%E3%81%AE%E3%83%A6%E3%83%BC%E3%82%B6%E3%81%AE%E6%A8%A9%E9%99%90%E3%81%8C%E7%84%A1%E5%8A%B9%E3%81%AB%E3%81%AA%E3%82%8B%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%81%8C%E6%8B%92%E5%90%A6%E3%81%95%E3%82%8C%E3%82%8B
+    - **追記（2022/3/28）**
 - レプリケーション設定の不整合（ギャップ）にかかわる設定項目の変更（8.0.19）
   - https://dev.mysql.com/doc/refman/8.0/ja/replication-features-transaction-inconsistencies.html
   - https://dev.mysql.com/doc/refman/8.0/en/replication-features-transaction-inconsistencies.html （8.0.26 以降の変更）
