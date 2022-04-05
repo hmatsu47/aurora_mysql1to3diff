@@ -36,7 +36,7 @@
 | `FLOAT`・`DOUBLE`型（シノニム含む）の`AUTO_INCREMENT` | 8.0.? (D) | 非推奨 https://dev.mysql.com/doc/refman/8.0/ja/mysql-nutshell.html#mysql-nutshell-deprecations |
 | `FLOAT(M,D)`・`DOUBLE(M,D)`（シノニム含む） | 8.0.? (D) | 非推奨 https://dev.mysql.com/doc/refman/8.0/ja/mysql-nutshell.html#mysql-nutshell-deprecations |
 | `YEAR(2)` | 5.7.5 (R) | 廃止→ `YEAR(4)`へ https://dev.mysql.com/doc/refman/5.7/en/migrating-from-year2.html |
-| `YEAR(4)` | 8.0.19 (R) | 非推奨→ `YEAR`へ https://dev.mysql.com/doc/refman/8.0/ja/date-and-time-type-syntax.html |
+| `YEAR(4)` | 8.0.19 (D) | 非推奨→ `YEAR`へ https://dev.mysql.com/doc/refman/8.0/ja/date-and-time-type-syntax.html |
 | 数値データ型の`ZEROFILL`属性 | 8.0.? (D) | 非推奨 https://dev.mysql.com/doc/refman/8.0/ja/mysql-nutshell.html#mysql-nutshell-deprecations |
 | 文字列データ型の`BINARY`属性 | 8.0.17 (D) | 非推奨 https://dev.mysql.com/doc/refman/8.0/ja/string-type-syntax.html 8.0.28 で`ASCII`・`UNICODE`も非推奨に https://dev.mysql.com/doc/refman/8.0/en/string-type-syntax.html |
 
