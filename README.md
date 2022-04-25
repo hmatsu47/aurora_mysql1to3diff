@@ -28,3 +28,11 @@
 - 調査結果にはないが、主キー以外のインデックスがないテーブルからのデータ取得時、`ORDER BY`が指定されないケースで複数行結果が返る場合のソート順が不定に
   - 本来これは「不定」が正しいし、MySQL 5.6 のマニュアルにも「不定」と書いてあった
   - 以前は主キー順でデータ取得できたが、MySQL 8.0 では本当に「不定」になった
+- パラメータグループでデフォルトどおり`explicit_defaults_for_timestamp`に`1`（有効）を指定した状態で、
+  - MySQL Connector/J のプリペアドステートメントを使って
+  - `NOT NULL`かつ`DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP`の`TIMESTAMP`・`DATETIME`列に対して
+  - `null`で`UPDATE`したときの挙動が、以下のように変化するケースがある
+    - Aurora MySQL v1・MySQL Connector/J 5.1 の組み合わせ:`UPDATE`時のタイムスタンプで更新
+    - Aurora MySQL v3・MySQL Connector/J 8.0 の組み合わせ:「`NOTNULL`列に`null`で`UPDATE`することはできない」旨のエラーが発生
+  - もともと Aurora MySQL v1（MySQL 5.6）の時点でこのような SQL 文を実行するのは非推奨
+  - 同様の事象が発生した場合は`null`ではなく`NOW()`などで`UPDATE`する形に SQL 文（プリペアドステートメント）を書き換える
