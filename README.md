@@ -20,8 +20,6 @@
     - https://dev.mysql.com/doc/refman/8.0/ja/information-schema.html
     - https://dev.mysql.com/doc/refman/8.0/ja/performance-schema.html
     - https://dev.mysql.com/doc/refman/8.0/ja/sys-schema.html
-  - なお、Aurora MySQL 3.01.0 時点では、パフォーマンスインサイト（パフォーマンススキーマの情報を利用）で取得可能なデータに異常？がある可能性も
-    - https://qiita.com/hmatsu47/items/9db2ad8e8f41e44a54b7#%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E3%82%A4%E3%83%B3%E3%82%B5%E3%82%A4%E3%83%88%E3%81%8C
 
 ## その他
 
@@ -35,3 +33,8 @@
     - Aurora MySQL v1・MySQL Connector/J 5.1 の組み合わせ:`UPDATE`時のタイムスタンプで更新
     - Aurora MySQL v3・MySQL Connector/J 8.0 の組み合わせ:「`NOTNULL`列に`null`で`UPDATE`することはできない」旨のエラーが発生
   - 同様の事象が発生した場合は`null`ではなく`NOW()`などで`UPDATE`する形に SQL 文（プリペアドステートメント）を書き換える
+- MySQL Connector/J で`FLOAT(M,D)`・`DOUBLE(M,D)`型の列を`java.math.BigDecimal`値として取り込む際に
+  - 5.1 時代は`D`（小数点以下の桁数）を自動的にスケールとして設定する実装になっていた
+  - 8.0 では明示的な`setScale(D)`が必要になった
+- 日付（日時）と文字列の比較
+  - https://rabbitfoot141.hatenablog.com/entry/2020/07/01/215728
