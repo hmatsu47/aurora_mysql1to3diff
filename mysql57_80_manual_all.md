@@ -7,7 +7,7 @@
   - SRID=0 ではオプティマイザに無視されるように
     - https://dev.mysql.com/doc/refman/8.0/ja/spatial-index-optimization.html
     - https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMySQL.Overview.html#Aurora.AuroraMySQL.Spatial
-    - https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.MySQL80.html#AuroraMySQL.mysql80-spatial
+    - ~~https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.MySQL80.html#AuroraMySQL.mysql80-spatial~~
 
 ## 言語構造（キーワードと予約語を除く）
 
